@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import API from '../utils/API'
+import Rows from './Rows'
 
 class Table extends Component {
+    state = {
+        humans: [],
+      };
+
     componentDidMount() {
         API.getRandomHuman()
-          .then(res => console.log(res))
+          .then(res => this.setState({ humans: res.data.results }))
           .catch(err => console.log(err));
       }
     
@@ -14,18 +19,10 @@ class Table extends Component {
             <tr>
                 <th>Firstname</th>
                 <th>Lastname</th>
-                <th>Age</th>
+                <th>Email</th>
             </tr>
-            <tr>
-                <td>Jill</td>
-                <td>Smith</td>
-                <td>50</td>
-            </tr>
-            <tr>
-                <td>Eve</td>
-                <td>Jackson</td>
-                <td>94</td>
-            </tr>
+            <Rows/>
+            <Rows/>
             </table>
         )
     }
