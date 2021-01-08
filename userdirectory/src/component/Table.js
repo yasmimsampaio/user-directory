@@ -1,6 +1,13 @@
 import React, { Component } from "react";
+import API from '../utils/API'
 
 class Table extends Component {
+    componentDidMount() {
+        API.getRandomHuman()
+          .then(res => console.log(res))
+          .catch(err => console.log(err));
+      }
+    
     render(){
         return(
             <table style={{width:100}}>
