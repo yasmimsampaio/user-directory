@@ -21,8 +21,21 @@ class Table extends Component {
                 <th>Lastname</th>
                 <th>Email</th>
             </tr>
-            <Rows/>
-            <Rows/>
+            {this.state.humans.map(humans => (
+                    <Rows
+                      key={humans._id}
+                      firstName={humans.name.first}
+                      image={humans.image}
+                      Button={() => (
+                        <button
+                          onClick={() => this.handleHumansDelete(humans._id)}
+                          className="btn btn-danger ml-2"
+                        >
+                          Delete
+                        </button>
+                      )}
+                    />
+                  ))}
             </table>
         )
     }
