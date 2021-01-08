@@ -1,14 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
+import Hello from './component/Hello';
+import Table from './component/Table';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <Hello/>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Party <code>src/App.js</code> and save to reload.
         </p>
+        <Table/>
         <a
           className="App-link"
           href="https://reactjs.org"
