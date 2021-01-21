@@ -9,7 +9,9 @@ class Table extends Component {
 
     componentDidMount() {
         API.getRandomHuman()
-          .then(res => this.setState({ humans: res.data.results }))
+          .then(res => {
+            console.log(res.data.results);  
+            this.setState({ humans: res.data.results })})
           .catch(err => console.log(err));
       }
     
@@ -17,25 +19,19 @@ class Table extends Component {
         return(
             <table style={{width:100}}>
             <tr>
-                <th>Firstname</th>
-                <th>Lastname</th>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
                 <th>Email</th>
             </tr>
             {this.state.humans.map(humans => (
                     <Rows
-                      key={humans._id}
+                      key={humans.id.value}
+                      id={humans.id.value}
                       firstName={humans.name.first}
-                      image={humans.image}
-                      Button={() => (
-                        <button
-                          onClick={() => this.handleHumansDelete(humans._id)}
-                          className="btn btn-danger ml-2"
-                        >
-                          Delete
-                        </button>
-                      )}
-                    />
-                  ))}
+                      lastName={humans.name.last}
+                      email={humans.email}
+                      />))}
             </table>
         )
     }
