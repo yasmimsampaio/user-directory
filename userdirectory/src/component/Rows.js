@@ -7,7 +7,7 @@ class Rows extends Component {
     render(){
         return(
             <tr>
-                <td>{this.props.id}</td>
+                {/* <td>{this.props.id}</td> */}
                 <td>{this.props.firstName}</td>
                 <td>{this.props.lastName}</td>
                 <td>{this.props.email}</td>
